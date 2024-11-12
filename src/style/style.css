@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+.h2,h2 {
+  color: blueviolet;
+}
+
 #root {
   display: flex;
   flex-direction: column;

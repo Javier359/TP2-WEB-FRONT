@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
-import "./style/style.css";
 import AppRouter from "./router/AppRouter";
+import "./style/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import SideBar from "./components/common/SideBar";
