@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -29,23 +29,30 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div className='p-3' >
             <h2>Login</h2>
             <input 
                 type="text" 
                 placeholder="Username" 
                 value={username} 
-                onChange={(e) => setUsername(e.target.value)} 
+                onChange={(e) => setUsername(e.target.value)}
+                className='m-1' 
             />
             <input 
                 type="password" 
                 placeholder="Password" 
                 value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
+                onChange={(e) => setPassword(e.target.value)}
+                className='m-1' 
             />
             <button onClick={handleLogin} disabled={loading}>
                 {loading ? 'Cargando...' : 'Iniciar sesión'}
             </button>
+            <p className='mt-4'>Aun no tenes acceso?</p>
+            <Link to="/register" className="div_btn">
+            Registrarse
+            </Link>
+            
         </div>
     );
 };

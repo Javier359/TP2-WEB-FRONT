@@ -5,6 +5,7 @@ import NewStudent from "../pages/NewStudent";
 import Index from "../pages/Index";
 import StudentModule from "../pages/StudentModule";
 import Login from "../pages/Login";  // Asegúrate de importar el componente Login
+import Register from "../pages/Register";
 
 const AppRouter = () => {
   return (
@@ -35,6 +36,8 @@ const AppRouter = () => {
           path="/login"
           element={<Login></Login>}
         ></Route>
+      </Route>
+      <Route exact path="/register" element={<Register></Register>}>
       </Route>
     </Routes>
   );

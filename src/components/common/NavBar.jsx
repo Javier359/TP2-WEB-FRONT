@@ -7,6 +7,7 @@ const NavBar = ({ title, addStudentBtn, backBtn }) => {
     <>
       <nav className="header_title">
         <h3 className="ms-3">{title}</h3>
+        <div className="d-flex justify-content-end p-1">
         {addStudentBtn && (
           <Link to="/students/add" className="div_btn">
             Agregar
@@ -17,10 +18,8 @@ const NavBar = ({ title, addStudentBtn, backBtn }) => {
             Volver
           </Link>
         )}
-        {/* Enlace al Login */}
-        <Link to="/login" className="div_btn">
-          Iniciar sesión
-        </Link>
+        </div>
+       
       </nav>
       <Outlet />
     </>
