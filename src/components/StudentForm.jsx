@@ -20,14 +20,26 @@ const StudentForm = ({ values = defaultValues }) => {
 
   const onSubmit = async (data) => {
     try {
+      const token = localStorage.getItem('token'); // Obtener el token desde localStorage
+      if (!token) {
+        alert('Debes iniciar sesión para agregar estudiantes');
+        return;
+      }
+
+      // Hacer la solicitud POST para agregar el estudiante
       await axios.post("http://localhost:3000/api/students", {
         firstname: data.inputNameValue,
         lastname: data.inputLastNameValue,
         dni: data.inputDniValue,
         email: data.inputEmailValue,
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`, // Incluir el token en los encabezados
+        }
       });
+
       alert("Estudiante agregado exitosamente");
-      reset(); 
+      reset();  // Limpiar el formulario después de enviar
     } catch (error) {
       if (error.response) {
         console.log("Error response data:", error.response.data); 

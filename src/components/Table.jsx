@@ -9,39 +9,59 @@ const Table = ({ search }) => {
 
   const fetchStudents = async () => {
     try {
+      // Obtener el token desde localStorage
+      const token = localStorage.getItem("token");
+  
+      if (!token) {
+        alert("Debes iniciar sesión para acceder a los estudiantes");
+        return;
+      }
+  
+      // Hacer la solicitud GET con el token en los encabezados
       const response = await axios.get("http://localhost:3000/api/students", {
         params: {
           search,
           currentPage,
           pageSize,
         },
+        headers: {
+          Authorization: `Bearer ${token}`, // Incluir el token en los encabezados
+        },
       });
-
+  
       setStudents(response.data.rows);
       setTotalStudents(response.data.count);
     } catch (error) {
       console.error("Error al obtener estudiantes:", error);
+      alert("Error al cargar estudiantes.");
     }
   };
+  
 
   const borrado = async (id) => {
     console.log(id);
 
     try {
-      const response = await axios.put(`http://localhost:3000/api/students/${id}`
-      
-      );
+      const token = localStorage.getItem('token'); // Obtener el token
+      if (!token) {
+        alert('Debes iniciar sesión para eliminar estudiantes');
+        return;
+      }
+
+      const response = await axios.put(`http://localhost:3000/api/students/${id}`, null, {
+        headers: {
+          Authorization: `Bearer ${token}`,  // Incluir el token en los encabezados
+        },
+      });
       fetchStudents();
       console.log(response);
     } catch (error) {
       console.error("Error al borrar el estudiante", error);
+      alert('No se pudo eliminar el estudiante');
     }
-
-  }
+  };
 
   useEffect(() => {
-
-
     fetchStudents();
   }, [search, currentPage, pageSize]);
 
