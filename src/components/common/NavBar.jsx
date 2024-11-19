@@ -1,4 +1,3 @@
-// NavBar.js
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import "../../style/navBar.css";
@@ -18,6 +17,10 @@ const NavBar = ({ title, addStudentBtn, backBtn }) => {
             Volver
           </Link>
         )}
+        {/* Enlace al Login */}
+        <Link to="/login" className="div_btn">
+          Iniciar sesión
+        </Link>
       </nav>
       <Outlet />
     </>

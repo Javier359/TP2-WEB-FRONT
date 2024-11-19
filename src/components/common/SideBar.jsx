@@ -32,6 +32,15 @@ const SideBar = () => {
               <label>Estudiantes</label>
             </Link>
           </li>
+
+          {/* Enlace al Login */}
+          <li
+            className={location.pathname === "/login" ? "selected_page_login" : "hover_login"}
+          >
+            <Link to="/login" className="links">
+              <label>Iniciar sesión</label>
+            </Link>
+          </li>
         </ul>
       </div>
     </aside>

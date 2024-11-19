@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import NewStudent from "../pages/NewStudent";
 import Index from "../pages/Index";
 import StudentModule from "../pages/StudentModule";
+import Login from "../pages/Login";  // Asegúrate de importar el componente Login
 
 const AppRouter = () => {
   return (
@@ -25,6 +26,14 @@ const AppRouter = () => {
           exact
           path="/students/add"
           element={<NewStudent></NewStudent>}
+        ></Route>
+      </Route>
+
+      <Route element={<NavBar title="Login de Usuario" backBtn={true} />}>
+        <Route
+          exact
+          path="/login"
+          element={<Login></Login>}
         ></Route>
       </Route>
     </Routes>

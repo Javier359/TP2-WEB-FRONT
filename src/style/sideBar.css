@@ -43,6 +43,15 @@ ul li a {
   font-weight: 700;
   border-top-left-radius: 5px;
 }
+.selected_page_login {
+  background-color: white;
+  font-weight: 700;
+  border-top-left-radius: 5px;
+}
+.selected_page_login:hover {
+  background-color: paleturquoise;
+  border-bottom-left-radius: 5px;
+}
 
 .hover_students:hover {
   background-color: paleturquoise;
@@ -51,4 +60,7 @@ ul li a {
 .hover_main:hover {
   background-color: paleturquoise;
   border-top-left-radius: 5px;
-}
+} 
+
+
+
