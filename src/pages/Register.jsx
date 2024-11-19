@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; 
-import "../style/register.css"; 
+// import "../style/register.css"; 
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -35,10 +35,10 @@ const Register = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container d-flex flex-column">
       <h2>Registrarse</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="d-flex align-items-center p-2">
           <label>Username</label>
           <input
             type="text"
@@ -47,7 +47,7 @@ const Register = () => {
             required
           />
         </div>
-        <div>
+        <div className="d-flex align-items-center p-2">
           <label>Password</label>
           <input
             type="password"
@@ -56,9 +56,11 @@ const Register = () => {
             required
           />
         </div>
+        <div className="p-2">
         {error && <p className="errorText">{error}</p>} 
         {successMessage && <p className="successText">{successMessage}</p>} 
         <button type="submit">Registrarse</button>
+        </div>
       </form>
       <a href="/login" className="register-link">¿Ya tienes una cuenta? Inicia sesión</a> 
     </div>
